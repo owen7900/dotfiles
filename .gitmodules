@@ -1,0 +1,6 @@
+[submodule ".config/dunst"]
+	path = .config/dunst
+	url = https://github.com/dracula/dunst.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/AstroNvim/AstroNvim

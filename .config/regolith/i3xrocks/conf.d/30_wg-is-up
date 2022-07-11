@@ -1,0 +1,3 @@
+[git-branch-widget]
+interval=5
+command=/home/prs/bin/wg-is-up

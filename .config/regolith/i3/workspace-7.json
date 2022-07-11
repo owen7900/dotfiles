@@ -1,0 +1,117 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 482,
+       "width": 802,
+       "x": 0,
+       "y": 0
+    },
+    "marks": [],
+    "name": "htop",
+    "percent": 0.5,
+    "swallows": [
+       {
+        "class": "^Gnome\\-terminal$",
+        "instance": "^gnome\\-terminal\\-server$",
+        "title": "^htop$",
+        "window_role": "^gnome\\-terminal\\-window\\-18a493f3\\-5e40\\-4f98\\-9d05\\-2afd21da83bc$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    // splitv split container with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 482,
+               "width": 802,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "watch -n 2 nvidia-smi",
+            "percent": 0.62,
+            "swallows": [
+               {
+                "class": "^Gnome\\-terminal$",
+                "instance": "^gnome\\-terminal\\-server$",
+                "title": "^watch\\ \\-n\\ 2\\ nvidia\\-smi$",
+                "window_role": "^gnome\\-terminal\\-window\\-5159dfe9\\-dcc8\\-446f\\-8c86\\-9b9128921d27$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splith split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.38,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 482,
+                       "width": 802,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "watch -n 2 'cat /proc/cpuinfo | grep MHz'",
+                    "percent": 0.38,
+                    "swallows": [
+                       {
+                        "class": "^Gnome\\-terminal$",
+                        "instance": "^gnome\\-terminal\\-server$",
+                        "title": "^watch\\ \\-n\\ 2\\ \\'cat\\ \\/proc\\/cpuinfo\\ \\|\\ grep\\ MHz\\'$",
+                        "window_role": "^gnome\\-terminal\\-window\\-3e26d35b\\-79fd\\-45cd\\-9451\\-0235a2c6cc25$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 482,
+                       "width": 802,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "marks": [],
+                    "name": "watch -n 2 'sensors | tail -n 20'",
+                    "percent": 0.62,
+                    "swallows": [
+                       {
+                        "class": "^Gnome\\-terminal$",
+                        "instance": "^gnome\\-terminal\\-server$",
+                        "title": "^watch\\ \\-n\\ 2\\ \\'sensors\\ \\|\\ tail\\ \\-n\\ 20\\'$",
+                        "window_role": "^gnome\\-terminal\\-window\\-4ef7d6c1\\-ff2b\\-4405\\-8d82\\-ec734596559f$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
