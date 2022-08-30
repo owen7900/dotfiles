@@ -2,7 +2,7 @@
 export PATH=$HOME/go/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/prs/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,18 +70,19 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 plugins=(git zsh-autosuggestions web-search dirhistory history)
 
 source $ZSH/oh-my-zsh.sh
 
 autoload -U zmv
-
 # User configuration
-
+autoload -Uz compinit && compinit
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -116,7 +117,25 @@ PROMPT=`hostname`$PROMPT
 alias set-conf="source set-conf"
 export U18=/home/prs/workspace/PRS/git/u18/code
 
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#source /opt/ros/rolling/setup.zsh
+# argcomplete for ros2 & colcon
+DISTRO=`( lsb_release -ds || cat /etc/*release || uname -om ) 2>/dev/null | head -n1`
+if [[ "$DISTRO" == "Ubuntu 20.04.4 LTS" ]]; then
+   source $HOME/owen_ws/install/setup.zsh
+   eval "$(register-python-argcomplete3 ros2)"
+   eval "$(register-python-argcomplete3 colcon)"
+   export CYCLONEDDS_URI=~/owen_ws/src/owen_nav_stack/misc/cycloneDDSConfig.xml
+elif [[ "$DISTRO" == "Ubuntu 18.04.6 LTS" ]]; then
+   source $HOME/qset/ws/devel/setup.zsh
+ elif [[ "$DISTRO" == "Ubuntu 22.04.1 LTS" ]]; then
+   source $HOME/owen_ws/install/setup.zsh
+   eval "$(register-python-argcomplete3 ros2)"
+   eval "$(register-python-argcomplete3 colcon)"
+   export CYCLONEDDS_URI=~/owen_ws/src/owen_nav_stack/misc/cycloneDDSConfig.xml
+fi
+
+export PATH=$PATH:$HOME/.local/bin
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-
-
 export PATH=$PATH:/home/prs/.spicetify
