@@ -9,7 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="dracula"
-
+DRACULA_ARROW_ICON="->"
+ZSH_THEME_GIT_PROMPT_DIRTY=") %F{yellow}%BX "
+ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B%* "
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -70,9 +72,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
-plugins=(git zsh-autosuggestions web-search dirhistory history)
+plugins=(git history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,7 +83,9 @@ autoload -Uz compinit && compinit
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
+export LC_ALL=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -103,19 +105,14 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
-export COMPONENTS=$ENVIRONMENT_VARIABLE_CODE_MK_PATH/cpp/prs/components
-export DRIVERS=$ENVIRONMENT_VARIABLE_CODE_MK_PATH/cpp/prs/drivers
-export PRS_COMPONENT_CONFIG_FILE=$HOME/conf.conf
-export PRS_PERSISTENT_CONFIG_FILE=$PRS_COMPONENT_CONFIG_FILE
-export RTI_LICENSE_FILE=$ENVIRONMENT_VARIABLE_CODE_MK_PATH/cpp/prs/communication/dds/etc/rti_license.dat
-export SIM=$ENVIRONMENT_VARIABLE_CODE_MK_PATH/cpp/prs/simulation/webots
 
 PROMPT=`hostname`$PROMPT
 
 alias set-conf="source set-conf"
 export U18=/home/prs/workspace/PRS/git/u18/code
+
+ZSH_THEME_GIT_PROMPT_DIRTY=") %F{yellow}%BX "
+ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B* "
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -134,8 +131,19 @@ elif [[ "$DISTRO" == "Ubuntu 18.04.6 LTS" ]]; then
    eval "$(register-python-argcomplete3 ros2)"
    eval "$(register-python-argcomplete3 colcon)"
    export CYCLONEDDS_URI=~/owen_ws/src/owen_nav_stack/misc/cycloneDDSConfig.xml
+   export FASTRTPS_DEFAULT_PROFILES_FILE=~/owen_ws/src/owen_nav_stack/misc/fastddsConfig.xml
 fi
+
+if lsb_release -a 2> /dev/null | grep -q "18" ; then
+  source $HOME/qset/ws/devel/setup.zsh
+  export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/home/owen/.local/share18
+  export XDG_DATA_HOME="/home/owen/.local/share18"
+else 
+  source $HOME/owen_ws/install/setup.zsh
+fi  
+
+
 
 export PATH=$PATH:$HOME/.local/bin
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-export PATH=$PATH:/home/prs/.spicetify
+alias s="kitty +kitten ssh"
