@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/go/bin:$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -8,10 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
-DRACULA_ARROW_ICON="->"
-ZSH_THEME_GIT_PROMPT_DIRTY=") %F{yellow}%BX "
-ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B%* "
+ZSH_THEME="robbyrussell"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -72,20 +69,17 @@ ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B%* "
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-autoload -U zmv
 # User configuration
-autoload -Uz compinit && compinit
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LC_TYPE=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
+# export LANG=en_US.UTF-8
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -109,10 +103,6 @@ alias vi=nvim
 PROMPT=`hostname`$PROMPT
 
 alias set-conf="source set-conf"
-export U18=/home/prs/workspace/PRS/git/u18/code
-
-ZSH_THEME_GIT_PROMPT_DIRTY=") %F{yellow}%BX "
-ZSH_THEME_GIT_PROMPT_CLEAN=") %F{green}%B* "
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -126,6 +116,9 @@ if [[ "$DISTRO" == "Ubuntu 20.04.4 LTS" ]]; then
    export CYCLONEDDS_URI=~/owen_ws/src/owen_nav_stack/misc/cycloneDDSConfig.xml
 elif [[ "$DISTRO" == "Ubuntu 18.04.6 LTS" ]]; then
    source $HOME/qset/ws/devel/setup.zsh
+   source $HOME/qset/ws/devel/setup.zsh
+   export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/home/owen/.local/share18
+   export XDG_DATA_HOME="/home/owen/.local/share18"
  elif [[ "$DISTRO" == "Ubuntu 22.04.1 LTS" ]]; then
    source $HOME/owen_ws/install/setup.zsh
    eval "$(register-python-argcomplete3 ros2)"
@@ -133,16 +126,6 @@ elif [[ "$DISTRO" == "Ubuntu 18.04.6 LTS" ]]; then
    export CYCLONEDDS_URI=~/owen_ws/src/owen_nav_stack/misc/cycloneDDSConfig.xml
    export FASTRTPS_DEFAULT_PROFILES_FILE=~/owen_ws/src/owen_nav_stack/misc/fastddsConfig.xml
 fi
-
-if lsb_release -a 2> /dev/null | grep -q "18" ; then
-  source $HOME/qset/ws/devel/setup.zsh
-  export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/home/owen/.local/share18
-  export XDG_DATA_HOME="/home/owen/.local/share18"
-else 
-  source $HOME/owen_ws/install/setup.zsh
-fi  
-
-
 
 export PATH=$PATH:$HOME/.local/bin
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
