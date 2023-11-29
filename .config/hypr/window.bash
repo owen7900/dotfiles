@@ -8,7 +8,7 @@ window="$(echo "$state" |
     gojq -r '.[] | select(.monitor != -1 ) | "\(.address)    \(.workspace.name)    \(.title)"' |
     sed "s|$current_addr|focused ->|" |
     sort -r |
-    tofi --fuzzy-match true)"
+    tofi --fuzzy-match true --font /usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Medium.ttf -c ~/.config/tofi.theme)"
 
 addr="$(echo "$window" | awk '{print $1}')"
 ws="$(echo "$window" | awk '{print $2}')"
