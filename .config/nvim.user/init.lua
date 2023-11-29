@@ -1,0 +1,50 @@
+return {
+  plugins = {
+    {
+      "goolord/alpha-nvim",
+      opts = function(_, opts)      -- override the options using lazy.nvim
+        opts.section.header.val = { -- change the header section value
+          " ██████  ██     ██ ███████ ███    ██ ███████     ███    ██ ███████  ██████  ██    ██ ██ ███    ███      ██████  ██████  ███    ██ ███████ ██  ██████  ",
+          "██    ██ ██     ██ ██      ████   ██ ██          ████   ██ ██      ██    ██ ██    ██ ██ ████  ████     ██      ██    ██ ████   ██ ██      ██ ██       ",
+          "██    ██ ██  █  ██ █████   ██ ██  ██ ███████     ██ ██  ██ █████   ██    ██ ██    ██ ██ ██ ████ ██     ██      ██    ██ ██ ██  ██ █████   ██ ██   ███ ",
+          "██    ██ ██ ███ ██ ██      ██  ██ ██      ██     ██  ██ ██ ██      ██    ██  ██  ██  ██ ██  ██  ██     ██      ██    ██ ██  ██ ██ ██      ██ ██    ██ ",
+          " ██████   ███ ███  ███████ ██   ████ ███████     ██   ████ ███████  ██████    ████   ██ ██      ██      ██████  ██████  ██   ████ ██      ██  ██████  "
+        }
+      end,
+    },
+  },
+  icons = {
+    MacroRecording = "",
+    ActiveLSP = "",
+    ActiveTS = "綠",
+    BufferClose = "",
+    NeovimClose = "",
+    DefaultFile = "",
+    Diagnostic = "裂",
+    DiagnosticError = "",
+    DiagnosticHint = "",
+    DiagnosticInfo = "",
+    DiagnosticWarn = "",
+    Ellipsis = "…",
+    FileModified = "",
+    FileReadOnly = "",
+    FolderClosed = "",
+    FolderEmpty = "",
+    FolderOpen = "",
+    Git = "",
+    GitAdd = "",
+    GitBranch = "",
+    GitChange = "",
+    GitConflict = "",
+    GitDelete = "",
+    GitIgnored = "◌",
+    GitRenamed = "➜",
+    GitStaged = "✓",
+    GitUnstaged = "✗",
+    GitUntracked = "★",
+    LSPLoaded = "",
+    LSPLoading1 = "",
+    LSPLoading2 = "",
+    LSPLoading3 = "",
+  },
+}
