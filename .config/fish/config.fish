@@ -25,8 +25,12 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 theme_tokyonight night
 
 fish_add_path /usr/lib/ccache/bin/
-fish_add_path /home/owen/bin
+fish_add_path $HOME/bin
 alias vi nvim
+alias ssh="kitty +kitten ssh"
+function r 
+    cd $HOME/Repos/$argv
+end
+complete -c r -f -a "(ls $HOME/Repos)"
     # Commands to run in interactive sessions can go here
 end
-
