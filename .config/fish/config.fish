@@ -31,6 +31,6 @@ alias ssh="kitty +kitten ssh"
 function r 
     cd $HOME/Repos/$argv
 end
-complete -c r -f -a "(ls $HOME/Repos)"
+complete -c r -f -a "(/usr/bin/ls $HOME/Repos)"
     # Commands to run in interactive sessions can go here
 end
