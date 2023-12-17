@@ -16,7 +16,7 @@ elif [[ ! -z $arg ]]; then
     file=$(grep -L "NoDisplay=true" $files)
   fi
   if [[ -f $file ]]; then
-    exe=$(awk 'BEGIN{FS="[=\ ]"}/^Exec/{print$2}' $file)
+    exe=$(awk 'BEGIN{FS="[=\ ]"}/^Exec/{print$2; exit;}' $file)
     if type $exe >/dev/null 2>&1; then
       if grep -q "Terminal=true" $file; then
         kitty --hold fish -c "$exe"
