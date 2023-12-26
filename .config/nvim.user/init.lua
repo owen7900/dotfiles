@@ -1,8 +1,14 @@
 return {
 	plugins = {
 		{
+			"AstroNvim/astrocommunity",
+			{ import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+			{ import = "astrocommunity.lsp.lsp-signature-nvim" },
+			{ import = "astrocommunity.terminal-integration.flatten-nvim" },
+		},
+		{
 			"goolord/alpha-nvim",
-			opts = function(_, opts) -- override the options using lazy.nvim
+			opts = function(_, opts)  -- override the options using lazy.nvim
 				opts.section.header.val = { -- change the header section value
 					" ██████  ██     ██ ███████ ███    ██ ███████     ███    ██ ███████  ██████  ██    ██ ██ ███    ███      ██████  ██████  ███    ██ ███████ ██  ██████  ",
 					"██    ██ ██     ██ ██      ████   ██ ██          ████   ██ ██      ██    ██ ██    ██ ██ ████  ████     ██      ██    ██ ████   ██ ██      ██ ██       ",
@@ -47,7 +53,7 @@ return {
 								request = "launch",
 								MIMode = "gdb",
 								miDebuggerServerAddress = function()
-									return vim.fn.input("Address")
+									return vim.fn.input("Address") + ":1234"
 								end,
 								miDebuggerPath = "/usr/bin/gdb-multiarch",
 								cwd = "${workspaceFolder}",
