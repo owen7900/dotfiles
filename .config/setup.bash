@@ -3,6 +3,7 @@
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 config submodule init
 config submodule update
+cd $HOME/.config
 ln -sT $HOME/.config/nvim.user nvim/lua/user
 sudo pacman -Syu
 sudo pacman -S --needed git base-devel
@@ -12,7 +13,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-yay -S hyprland-nvidia \
+yay -S hyprland-git \
   waybar-hyprland \
   neovim \
   ttf-jetbrains-mono-nerd \
@@ -35,12 +36,17 @@ yay -S hyprland-nvidia \
   pipewire-pulse \
   pipewire-alsa \
   btop \
-  eza 
+  eza \
+  bc \
+  cpupower \
+  cpupower-gui
 
 
 systemctl enable NetworkManager
 systemctl start NetworkManager
 systemctl enable bluetooth
+systemctl enable cpupower
+systemctl start cpupower
 
 
   

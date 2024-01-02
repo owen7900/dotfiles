@@ -5,6 +5,9 @@ return {
 			{ import = "astrocommunity.debugging.nvim-dap-virtual-text" },
 			{ import = "astrocommunity.lsp.lsp-signature-nvim" },
 			{ import = "astrocommunity.terminal-integration.flatten-nvim" },
+			{ import = "astrocommunity.motion.flash-nvim" },
+			{ import = "astrocommunity.motion.nvim-spider" },
+			{ import = "astrocommunity.motion.marks-nvim" },
 		},
 		{
 			"goolord/alpha-nvim",
