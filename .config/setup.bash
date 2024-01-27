@@ -39,7 +39,10 @@ yay -S hyprland-git \
   eza \
   bc \
   cpupower \
-  cpupower-gui
+  cpupower-gui \
+  bat scc duf \
+  bandwhich
+
 
 
 systemctl enable NetworkManager
