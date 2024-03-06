@@ -41,13 +41,19 @@ elif [[ $arg =~ ^[0-9] ]]; then
   fi
   calc $arg 2> >($tf --prompt-text $ans)
 elif [[ ! -z $arg ]]; then
-  files=$(grep -l "^.*Name=$arg" /usr/share/applications/*.desktop $HOME/.local/share/applications/*.desktop)
+  files=$(grep -l "^.*Name=$arg$" /usr/share/applications/*.desktop $HOME/.local/share/applications/*.desktop)
+  echo $files
   file=""
   if [[ ! -z $files ]]; then
     file=$(grep -L "NoDisplay=true" $files)
+    if [[ ! -f $file ]]; then
+      file=`echo $file | awk 'BEGIN{FS=" "};{print $1}'`    
+    fi
   fi
+  echo $file
   if [[ -f $file ]]; then
     exe=$(awk 'BEGIN{FS="[=\ ]"}/^Exec/{print$2; exit;}' $file)
+    echo $exe
     if type $exe >/dev/null 2>&1; then
       if grep -q "Terminal=true" $file; then
         kitty --hold fish -c "$exe"
