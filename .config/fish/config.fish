@@ -2,16 +2,16 @@ if status is-interactive
 # set --universal tide_left_prompt_items distrobox $tide_left_prompt_items
 if test (lsb_release -sc) = "jammy"; 
 echo JAMMY
-export XDG_DATA_HOME="/home/owen/.local/share20" 
-export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/home/owen/.local/share20
+export XDG_DATA_HOME="$HOME/.local/share20" 
+export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:$HOME/.local/share20
 else if test (lsb_release -sc) = "bionic";
-export XDG_DATA_HOME="/home/owen/.local/share18" 
-export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/home/owen/.local/share18
+export XDG_DATA_HOME="$HOME/.local/share18" 
+export XDG_DATA_DIRS=/usr/share/regolith:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:$HOME/.local/share18
 else  
 export ROS_DOMAIN_ID=42
 alias ls="eza --icons=always --hyperlink"
 end 
-fish_add_path -a --path /home/owen/appimages
+fish_add_path -a --path $HOME/appimages
 register-python-argcomplete --shell fish pipx | source
 register-python-argcomplete --shell fish ros2 | source
 

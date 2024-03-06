@@ -1,12 +1,37 @@
 return {
+	lsp = {
+		mappings = {
+			n = {
+				["<leader>lu"] = { "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source Header" },
+				["<leader>lt"] = { "<cmd>ClangdTypeHierarchy<cr>", desc = "Show Type Hierarchy" },
+			},
+		},
+	},
 	plugins = {
+		{
+			"p00f/clangd_extensions.nvim", -- install lsp plugin
+			init = function()
+				-- load clangd extensions when clangd attaches
+				local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
+				vim.api.nvim_create_autocmd("LspAttach", {
+					group = augroup,
+					desc = "Load clangd_extensions with clangd",
+					callback = function(args)
+						if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
+							require("clangd_extensions")
+							-- add more `clangd` setup here as needed such as loading autocmds
+							vim.api.nvim_del_augroup_by_id(augroup) -- delete auto command since it only needs to happen once
+						end
+					end,
+				})
+			end,
+		},
 		{
 			"AstroNvim/astrocommunity",
 			{ import = "astrocommunity.debugging.nvim-dap-virtual-text" },
 			{ import = "astrocommunity.lsp.lsp-signature-nvim" },
 			{ import = "astrocommunity.terminal-integration.flatten-nvim" },
 			{ import = "astrocommunity.motion.flash-nvim" },
-			{ import = "astrocommunity.motion.nvim-spider" },
 			{ import = "astrocommunity.motion.marks-nvim" },
 		},
 		{
@@ -70,38 +95,4 @@ return {
 			},
 		},
 	},
-	-- icons = {
-	-- 	MacroRecording = "",
-	-- 	ActiveLSP = "",
-	-- 	ActiveTS = "綠",
-	-- 	BufferClose = "",
-	-- 	NeovimClose = "",
-	-- 	DefaultFile = "",
-	-- 	Diagnostic = "裂",
-	-- 	DiagnosticError = "",
-	-- 	DiagnosticHint = "",
-	-- 	DiagnosticInfo = "",
-	-- 	DiagnosticWarn = "",
-	-- 	Ellipsis = "…",
-	-- 	FileModified = "",
-	-- 	FileReadOnly = "",
-	-- 	FolderClosed = "",
-	-- 	FolderEmpty = "",
-	-- 	FolderOpen = "",
-	-- 	Git = "",
-	-- 	GitAdd = "",
-	-- 	GitBranch = "",
-	-- 	GitChange = "",
-	-- 	GitConflict = "",
-	-- 	GitDelete = "",
-	-- 	GitIgnored = "◌",
-	-- 	GitRenamed = "➜",
-	-- 	GitStaged = "✓",
-	-- 	GitUnstaged = "✗",
-	-- 	GitUntracked = "★",
-	-- 	LSPLoaded = "",
-	-- 	LSPLoading1 = "",
-	-- 	LSPLoading2 = "",
-	-- 	LSPLoading3 = "",
-	-- },
 }
