@@ -41,18 +41,31 @@ window#waybar.hidden {
 	border-radius: 2px;
 }
 
-#workspaces button.occupied {
+#workspaces button.visible {
+	color: #ABE9B3;
+    border-top: 2px solid #ABE9B3;
+    border-bottom: 2px solid #ABE9B3;
+}
+
+#workspaces button.active {
 	transition: none;
 	color: #F28FAD;
 	background: transparent;
 	font-size: 4px;
 }
 
-#workspaces button.focused {
-	color: #ABE9B3;
-    border-top: 2px solid #ABE9B3;
-    border-bottom: 2px solid #ABE9B3;
+#workspaces button.empty {
+	color: #bd93f9;
 }
+
+#workspaces button.urgent {
+	color: #F28FAD;
+    border-top: 2px solid #F28FAD;
+    border-bottom: 2px solid #F28FAD;
+	background: transparent;
+	font-size: 4px;
+}
+
 
 #workspaces button:hover {
 	transition: none;
