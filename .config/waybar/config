@@ -8,8 +8,8 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": "{icon} {format_source}",
-        "format-muted": "{icon} {format_source}",
+        "format-bluetooth-muted": "󰝟 {volume}% {icon} {format_source}",
+        "format-muted": "󰝟 {volume}% {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -59,7 +59,8 @@
 		"spacing": 10
 	},
     "clock": {
-        "format": "{: %I:%M %p   %d/%m/%Y}",
+//        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "format": " {:%I:%M %p  \uf073 %d/%m/%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "cpu": {
@@ -92,8 +93,8 @@
     "custom/updates":{
         "format": "{} Update(s)",
         "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
+//        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 60,
         "on-click": "kitty -e yay -Syu && notify-send 'The system has been updated' "
     }
 }
