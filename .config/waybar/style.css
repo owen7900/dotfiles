@@ -48,7 +48,7 @@ window#waybar.hidden {
 	border-bottom: 2px solid #ABE9B3;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
 	transition: none;
 	color: #F28FAD;
 	background: transparent;
@@ -67,7 +67,6 @@ window#waybar.hidden {
 	font-size: 4px;
 }
 
-
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
@@ -79,6 +78,10 @@ window#waybar.hidden {
 
 #workspaces button.focused:hover {
 	color: #E8A2AF;
+}
+
+#workspaces button.current_output {
+	border-bottom: 2px solid #bd93f9;
 }
 
 #network {
