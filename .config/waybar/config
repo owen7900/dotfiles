@@ -103,7 +103,7 @@
         "on-click": "playerctl play-pause"
     },
     "custom/launcher":{
-        "format": " ",
+        "format": "",
         "on-click": "~/.config/hypr/tofi-run.bash",
         "on-click-right": "killall tofi"
     },

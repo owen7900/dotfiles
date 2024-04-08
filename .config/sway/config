@@ -27,12 +27,12 @@ include $HOME/.config/sway/monitors.conf
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg $HOME/Pictures/wallpaper.png fill
-exec waybar
 exec dunst
 exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
 exec firefox
-exec btop
+exec kitty btop
+bindsym $mod+w exec waybar
 #
 # Example configuration:
 #
@@ -258,5 +258,8 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+bar { 
+     swaybar_command waybar
+}
 
 # include /etc/sway/config.d/*
