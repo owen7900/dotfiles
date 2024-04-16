@@ -19,6 +19,7 @@ fish_add_path -a --path $HOME/appimages
 set fish_greeting You have $(math $(ps aux | grep /usr/bin/fish | wc -l) - 1) shells open
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+export MANPAGER='nvim +Man!'
 
 theme_tokyonight night
 
