@@ -74,6 +74,10 @@ input type:touchpad {
 default_border none
 smart_borders on
 smart_gaps on
+blur enable
+shadows enable
+corner_radius 10
+gaps inner 10
 
 ### Key bindings
 #
