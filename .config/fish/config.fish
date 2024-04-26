@@ -25,6 +25,7 @@ theme_tokyonight night
 
 fish_add_path /usr/lib/ccache/bin/
 fish_add_path $HOME/bin
+fish_add_path /home/owen/.cargo/bin
 alias vi nvim
 alias ssh="kitty +kitten ssh"
 function r 
