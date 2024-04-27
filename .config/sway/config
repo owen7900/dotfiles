@@ -31,7 +31,7 @@ exec swaync
 exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
 exec firefox
-exec btop
+exec kitty btop
 #
 # Example configuration:
 #
@@ -90,6 +90,7 @@ gaps inner 10
 
     # Start your launcher
     bindsym $mod+space exec $menu
+    bindsym $mod+n exec swaync-client -t
 
     bindsym $mod+h exec grimshot save area | xargs notify-send "Screenshot Saved"
     bindsym $mod+Shift+h exec grimshot copy area | notify-send "Screenshot Copied"
