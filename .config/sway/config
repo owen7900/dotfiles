@@ -32,7 +32,6 @@ exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
 exec firefox
 exec kitty btop
-bindsym $mod+w exec waybar
 #
 # Example configuration:
 #
@@ -75,6 +74,10 @@ input type:touchpad {
 default_border none
 smart_borders on
 smart_gaps on
+#blur enable
+#shadows enable
+#corner_radius 10
+gaps inner 10
 
 ### Key bindings
 #
@@ -88,6 +91,7 @@ smart_gaps on
 
     # Start your launcher
     bindsym $mod+space exec $menu
+    bindsym $mod+n exec swaync-client -t
 
     bindsym $mod+h exec grimshot save area | xargs notify-send "Screenshot Saved"
     bindsym $mod+Shift+h exec grimshot copy area | notify-send "Screenshot Copied"
@@ -262,5 +266,9 @@ bindsym $mod+r mode "resize"
 bar { 
      swaybar_command waybar
 }
+<<<<<<< HEAD
 
 # include /etc/sway/config.d/*
+=======
+include /etc/sway/config.d/*
+>>>>>>> 8701c375fc5e5ec29cc1a924cf639fc67cdde118
