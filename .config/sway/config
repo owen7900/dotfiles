@@ -27,7 +27,7 @@ include $HOME/.config/sway/monitors.conf
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg $HOME/Pictures/wallpaper.png fill
-exec dunst
+exec swaync
 exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
 exec firefox
@@ -66,6 +66,7 @@ bindsym $mod+w exec waybar
 input type:touchpad {
 
        natural_scroll enabled
+       pointer_accel 0.6
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
