@@ -11,11 +11,11 @@ fish_add_path -a --path $HOME/appimages
 export DEBUGINFOD_URLS="https://debuginfod.ubuntu.com/"
 export DEBUGINFOD_PROGRESS=1
 
-bass source /opt/ros/humble/setup.bash
+bass source /opt/ros/jazzy/setup.bash
 $HOME/globalVenv/bin/register-python-argcomplete -s fish ros2 | source
 $HOME/globalVenv/bin/register-python-argcomplete -s fish colcon | source
 
-set fish_greeting You have $(math $(ps aux | grep /usr/bin/fish | wc -l) - 1) shells open
+set fish_greeting You have $(math $(ps aux | grep ' fish' | wc -l) - 1) shells open
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 export MANPAGER='nvim +Man!'
