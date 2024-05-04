@@ -32,6 +32,7 @@ exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
 exec firefox
 exec kitty btop
+exec_always autotiling
 #
 # Example configuration:
 #
@@ -73,9 +74,10 @@ input type:touchpad {
 default_border none
 smart_borders on
 smart_gaps on
-#blur enable
-#shadows enable
-#corner_radius 10
+blur enable
+shadows enable
+corner_radius 10
+# layer_effects "waybar" blur enable; shadows enable; corner_radius 6
 gaps inner 10
 
 ### Key bindings
@@ -112,10 +114,10 @@ gaps inner 10
 
 
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
-# bindsym XF86MicMute exec pactl set-mute @DEFAULT_AUDIO_SOURCE@ toggle 
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle 
+bindsym XF86MicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86AudioPlay exec playerctl play-pause 
