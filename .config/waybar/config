@@ -1,4 +1,5 @@
 {
+    "margin-bottom": 6,
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","tray"],
 	"modules-center": ["sway/workspaces"],
