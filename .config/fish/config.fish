@@ -18,19 +18,17 @@ $HOME/globalVenv/bin/register-python-argcomplete -s fish colcon | source
 set fish_greeting You have $(math $(ps aux | grep /usr/bin/fish | wc -l) - 1) shells open
 
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-export MANPAGER='nvim +Man!'
+# export MANPAGER='nvim +Man!'
 
 theme_tokyonight night
 
 fish_add_path /usr/lib/ccache/bin/
 fish_add_path $HOME/bin
+fish_add_path $HOME/go/bin
 fish_add_path /home/owen/.cargo/bin
 alias vi=nvim
 alias apt=nala
 alias ssh="kitty +kitten ssh"
-function r 
-    cd $HOME/Repos/$argv
-end
-complete -c r -f -a "(/usr/bin/ls $HOME/Repos)"
+source $HOME/.config/fish/repos.fish
     # Commands to run in interactive sessions can go here
 end
