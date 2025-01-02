@@ -26,6 +26,7 @@ if status is-interactive
     fish_add_path $HOME/bin
     fish_add_path $HOME/go/bin
     fish_add_path /home/owen/.cargo/bin
+    fish_add_path $HOME/.local/bin/
     alias vi=nvim
     alias apt=nala
     alias ssh="kitty +kitten ssh"

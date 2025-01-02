@@ -27,7 +27,9 @@ include $HOME/.config/sway/monitors.conf
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/wallpaper.png fill
+# output * bg $HOME/Pictures/wallpaper.png fill
+output * bg $HOME/Pictures/X4BG.png fill
+# output * bg $HOME/Pictures/wallpaper.jpg fill
 exec swaync
 exec nm-applet
 exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --disable-gpu

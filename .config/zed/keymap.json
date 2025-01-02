@@ -24,18 +24,37 @@
       "space b": "editor::ToggleGitBlame",
       "space f f": "file_finder::Toggle",
       "space f s": "project_symbols::Toggle",
-      "space s": "outline::Toggle",
+      "space f w": "workspace::NewSearch",
+      "space f b": "tab_switcher::Toggle",
+      "space s": "workspace::ToggleRightDock",
       "shift-k": "editor::Hover",
       "space l f": "editor::Format",
       "space d": "diagnostics::Deploy",
       "space o": "tab_switcher::Toggle",
       "space e": "workspace::ToggleLeftDock",
+      // "space e": "project_panel::ToggleFocus",
       "space /": "editor::ToggleComments",
       "n": "search::SelectNextMatch",
       "shift-n": "search::SelectPrevMatch",
-      "space t": "workspace::NewCenterTerminal",
-      "space c": "pane::CloseActiveItem",
-      "space c a": "editor::ToggleCodeActions"
+      "space c a": "editor::ToggleCodeActions",
+      "space c h": "editor::SwitchSourceHeader",
+      "space l r": "editor::Rename",
+      "space t": "workspace::ToggleBottomDock",
+      "g r": "editor::FindAllReferences",
+      "space q": "pane::CloseAllItems",
+      "space p o": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Terminal && VimControl && !VimWaiting && vim_mode == normal",
+    "bindings": {
+      "space t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "ProjectPanel && vim_mode == normal",
+    "bindings": {
+      "a": "project_panel::NewFile"
     }
   },
   {
