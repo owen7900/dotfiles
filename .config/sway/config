@@ -21,18 +21,22 @@ set $term kitty
 set $menu $HOME/.config/tofi-run.bash
 
 include /etc/sway/config-vars.d/*
+include /etc/sway/config.d/*
 include $HOME/.config/sway/monitors.conf
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/wallpaper.png fill
+# output * bg $HOME/Pictures/wallpaper.png fill
+output * bg $HOME/Pictures/X4BG.png fill
+# output * bg $HOME/Pictures/wallpaper.jpg fill
 exec swaync
 exec nm-applet
-exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer
+exec slack --ozone-platform=wayland --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --disable-gpu
 exec firefox
 exec kitty btop
 exec_always autotiling
+exec wl-paste --watch cliphist store
 #
 # Example configuration:
 #
@@ -79,6 +83,7 @@ blur enable
 shadows enable
 corner_radius 10
 # layer_effects "waybar" blur enable; shadows enable; corner_radius 6
+input type:keyboard xkb_numlock enabled
 gaps inner 10
 
 ### Key bindings
@@ -124,6 +129,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86AudioPlay exec playerctl play-pause 
 bindsym XF86AudioPrev exec playerctl previous 
 bindsym XF86AudioNext exec playerctl next
+bindsym $mod+c exec $HOME/.config/clip.bash
 #
 # Moving around:
 #
@@ -240,7 +246,8 @@ bindsym XF86AudioNext exec playerctl next
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+s scratchpad show, resize set 960 780, move position center
+    # bindsym $mod+s scratchpad show, resize set 80 ppt 80 ppt, move position center
+     bindsym $mod+s scratchpad show,  move position center
 #
 # Resizing containers:
 #

@@ -2,12 +2,16 @@
     "margin-bottom": 6,
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","tray"],
-	"modules-center": ["sway/workspaces"],
-	"modules-right": ["backlight","pulseaudio", "network", "clock", "battery","custom/notification"],
+//	"modules-center": ["sway/workspaces"],
+	"modules-right": ["custom/weather", "backlight","pulseaudio", "network", "clock", "battery","custom/notification"],
 //	"modules-left": ["custom/launcher","cpu","memory","temperature","custom/media", "tray"],
-//	"modules-center": ["hyprland/workspaces"],
+	"modules-center": ["hyprland/workspaces"],
 //	"modules-right": ["custom/updates","backlight","pulseaudio", "network", "clock", "battery"],
 
+"custom/weather": {
+    "tooltip": false,
+    "exec": "curl -s \"wttr.in/kitchener?format=%c%t\\n\" | sed 's/+//g' | sed 's/C/C /g' | sed 's/ //g'"
+  },
 
   "custom/notification": {
     "tooltip": false,
