@@ -39,7 +39,11 @@
     "**/Thumbs.db",
     "**/.classpath",
     "**/.settings",
-    "**/build*"
+    "**/build*",
+    "**/.cache*",
+    "compile_commands.json",
+    "**/.idea*",
+    "**/install*"
   ],
   "auto_install_extensions": {
     "html": true,

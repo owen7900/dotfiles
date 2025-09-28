@@ -21,12 +21,14 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu && vim_mode == normal",
     "bindings": {
-      "space b": "editor::ToggleGitBlame",
+      "space b": "git::Blame",
+
       "space f f": "file_finder::Toggle",
       "space f s": "project_symbols::Toggle",
       "space f w": "workspace::NewSearch",
       "space f b": "tab_switcher::Toggle",
-      "space s": "workspace::ToggleRightDock",
+
+      "space s": "outline_panel::ToggleFocus",
       "shift-k": "editor::Hover",
       "space l f": "editor::Format",
       "space d": "diagnostics::Deploy",
@@ -35,14 +37,15 @@
       // "space e": "project_panel::ToggleFocus",
       "space /": "editor::ToggleComments",
       "n": "search::SelectNextMatch",
-      "shift-n": "search::SelectPrevMatch",
+      "shift-n": "search::SelectPreviousMatch",
       "space c a": "editor::ToggleCodeActions",
       "space c h": "editor::SwitchSourceHeader",
-      "space l r": "editor::Rename",
-      "space t": "workspace::ToggleBottomDock",
+      "space c r": "editor::Rename",
+      // "space t": "workspace::ToggleBottomDock",
       "g r": "editor::FindAllReferences",
       "space q": "pane::CloseAllItems",
-      "space p o": "projects::OpenRecent"
+      "space p o": "projects::OpenRecent",
+      "a": "project_panel::NewFile"
     }
   },
   {
